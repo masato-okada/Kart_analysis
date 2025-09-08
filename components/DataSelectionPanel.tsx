@@ -86,7 +86,7 @@ export default function DataSelectionPanel({
           </label>
           <select
             multiple
-            value={selectedLaps}
+            value={selectedLaps.map(lap => lap.toString())}
             onChange={(e) => {
               const values = Array.from(e.target.selectedOptions, option => parseInt(option.value));
               onLapsChange(values);
