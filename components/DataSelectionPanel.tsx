@@ -36,13 +36,13 @@ export default function DataSelectionPanel({
       return Array.from(allLaps).sort((a, b) => a - b);
     } else {
       // 選択されたセッションのラップ
-      const selectedLaps = new Set<number>();
+      const selectedLapsSet = new Set<number>();
       validFiles
         .filter(file => selectedSessions.includes(file.sessionName))
         .forEach(file => {
-          file.data.lap?.forEach(lap => selectedLaps.add(lap));
+          file.data.lap?.forEach(lap => selectedLapsSet.add(lap));
         });
-      return Array.from(selectedLaps).sort((a, b) => a - b);
+      return Array.from(selectedLapsSet).sort((a, b) => a - b);
     }
   };
 

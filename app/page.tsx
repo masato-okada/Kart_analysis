@@ -88,7 +88,7 @@ export default function Home() {
         const result = computeCurves(combinedData, params);
         newResults.push({ name: 'All', result });
       } else if (mode === 'by_session') {
-        const sessions = [...new Set(combinedData.session)];
+        const sessions = Array.from(new Set(combinedData.session));
         sessions.forEach(session => {
           const sessionData: TimeSeriesData = {
             t: [],
@@ -119,7 +119,7 @@ export default function Home() {
           sessionLapPairs.add(`${session}|${combinedData.lap[i]}`);
         });
 
-        sessionLapPairs.forEach(pair => {
+        Array.from(sessionLapPairs).forEach(pair => {
           const [session, lapStr] = pair.split('|');
           const lap = parseInt(lapStr);
           
