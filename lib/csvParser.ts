@@ -1,6 +1,9 @@
 import Papa from 'papaparse';
 import { autoMapColumns, toStandardTimeSeries, TimeSeriesData } from './dataProcessing';
 
+// TimeSeriesDataを再エクスポート
+export { TimeSeriesData };
+
 export interface ParsedFile {
   filename: string;
   sessionName: string;
