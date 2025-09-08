@@ -4,7 +4,10 @@ import dynamic from 'next/dynamic';
 import { CurveResult } from '@/lib/dataProcessing';
 
 // Plotly.jsを動的インポート（SSRを無効化）
-const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
+const Plot = dynamic(() => import('react-plotly.js'), { 
+  ssr: false,
+  loading: () => <div className="w-full h-96 flex items-center justify-center">グラフを読み込み中...</div>
+});
 
 interface ChartProps {
   results: { name: string; result: CurveResult }[];

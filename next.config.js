@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'plotly.js': 'plotly.js/dist/plotly.min.js',
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
     };
     return config;
   },
