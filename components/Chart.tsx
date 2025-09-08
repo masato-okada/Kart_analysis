@@ -7,7 +7,7 @@ import { CurveResult } from '@/lib/dataProcessing';
 const Plot = dynamic(() => import('react-plotly.js'), { 
   ssr: false,
   loading: () => <div className="w-full h-96 flex items-center justify-center">グラフを読み込み中...</div>
-});
+}) as any;
 
 interface ChartProps {
   results: { name: string; result: CurveResult }[];
